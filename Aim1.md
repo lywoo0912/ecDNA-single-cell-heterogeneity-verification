@@ -38,7 +38,7 @@ Robustness 검증 방법: 두 가지 도구의 DM세포 copy number 추정값을
 - Spearman Correlation: 0.7486532<br>
 
 ✅ inferCNV와 CopyKAT의 DM 세포별 MYC amplicon 신호는 Pearson: 0.7779062, Spearman: 0.7486532로 강한 양의 상관관계를 보였다.
-두 지표가 근접한 값을 보인다는 점은 이 관계가 소수 극단치에 좌우되지 않고 안정적임을 의미하며, 서로 다른 두 CN 추정 방법이 일관된 신호를 포착하고 있음을 뒷받침한다.<br>
+두 지표가 근접한 값을 보인다는 점은 이 관계가 소수 극단치에 좌우되지 않고 안정적임을 의미하며, 서로 다른 두 CN 추정 방법이 일관된 신호를 포착하고 있음을 알 수 있다.<br>
 ⚠️ inferCNV과 CopyKAT의 DM세포에 대한 GMM check결과, 두 가지 방법 모두 Carrier/Non-carrier로 나뉘는 구간이 있다기보다는 연속분포 형태를 띄는 것으로 나타났다. -> 정답 label을 얻어야 하는 Aim3에서 어떻게 할 것인지가 문제<br>
 
    
