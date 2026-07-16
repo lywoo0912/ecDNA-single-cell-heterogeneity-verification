@@ -1,3 +1,4 @@
+# Aim1: 세포별 ecDNA copy number 추정<br>
 ## [Steps]<br>
 1. COLO320DM & COLO320HSR scRNA-seq 데이터 확보<br>
 2. Amplicon Repository을 통한 Amplicon 좌표 확보<br>
