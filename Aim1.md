@@ -24,7 +24,7 @@ Amplicon 좌표: chr8	127437994	129010064, chr8	130278183	130286722 확보<br>
 ### [Step4: inferCNV & Sanity Check: 이 locus에 실제로 증폭신호가 있는가?]<br>
 <img width="600" height="400" alt="dm_chr8_amplicon_vs_dm_chr8)non_amplicon_boxplot" src="https://github.com/user-attachments/assets/a4d6358d-b16a-49c1-ac61-53a2d80d6c1a" />
 <img width="550" height="250" alt="dm_chr8_profile" src="https://github.com/user-attachments/assets/72695d0a-92a3-451b-83f9-d202a1aa724b" />
-<img width="600" height="500" alt="infer_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/ad4a5afc-0e43-4c89-b477-e9f3500d73ac" />
+<img width="600" height="500" alt="2infer_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/08ec5857-3bb1-4b2a-b800-21b14941d2c5" />
 <img width="600" height="500" alt="copykat_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/eedbcf13-1f97-4ab8-b8a2-861fe1f7d412" />
 
 
