@@ -24,7 +24,7 @@ Amplicon 좌표: chr8	127437994	129010064, chr8	130278183	130286722 확보<br>
 ### [Step4: inferCNV & Sanity Check: 이 locus에 실제로 증폭신호가 있는가?]<br>
 <img width="550" height="250" alt="dm_chr8_profile" src="https://github.com/user-attachments/assets/72695d0a-92a3-451b-83f9-d202a1aa724b" /><br>
 ✅ chr8 부위의 유전자별 CN 추정값을 그래프로 나타낸 결과, AA 좌표 내 영역에서 실제로 spike가 있음을 확인했다.<br>
-=> ecDNA MYC locus에 실제로 증폭신호가 있다.<br>
+✅ ecDNA MYC locus에 실제로 증폭신호가 있다.<br>
 
 ---
 ### [Step5: CopyKAT 실행 & 두 방법 일치도 확인]<br>
