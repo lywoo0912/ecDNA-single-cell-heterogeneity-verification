@@ -13,7 +13,7 @@
 
 ✅ ecDNA의 CN분산이 amplicon2_linear의 약 1.56배, amplicon3_linear의 약 6.58배, amplicon4_linear의 약 6.99배이다.<br>
 ✅ 따라서, ecDNA가 위치한 genomic locus의 CN 분산이 일반 chromosomal amplification locus의 CN 분산보다 크다는 것이 증명되었다.<br>
-⚠️ 추가적으로 왜 amplicon2_la는 amplicon3_la, amplicon4_la에 비해서 큰 분산을 가지는지 알아볼 필요가 있을 것 같다.
+⚠️ 추가적으로 왜 amplicon2_la는 amplicon3_la, amplicon4_la에 비해서 큰 분산을 가지는지 알아볼 필요가 있다.
 
 
 
