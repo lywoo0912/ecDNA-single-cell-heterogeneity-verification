@@ -39,9 +39,11 @@ inferCNV로 살행했을 때 나온 amplicon 영역 내 유전자 15개 중 Copy
 ✅ 따라서, inferCNV와 CopyKAT의 CN 추정값이 높은 확률로 일치한다는 것을 확인했다.<br>
 
 <br>
-<img width="400" height="300" alt="2infer_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/08ec5857-3bb1-4b2a-b800-21b14941d2c5" />
+<img width="400" height="300" alt="infercnv_ecdna_presmooth" src="https://github.com/user-attachments/assets/982033bd-5776-4877-bdfa-046c63e9e433" />
 <img width="400" height="300" alt="copykat_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/eedbcf13-1f97-4ab8-b8a2-861fe1f7d412" /><br>
-⚠️ Aim3 이후의 과정에서 DM세포를 ecDNA Carrier/Non-carrier로 나눈 정답 label이 필요하다. 하지만 inferCNV, CopyKAT의 CN 추정값 분포 histogram을 그려봤을 때, Carrier/Non-carrier로 나뉠만한 뚜렷한 분리구간을 보이지 않는 연속분포 형태를 띄고있다.<br>
-⚠️ 어떤 방법론이 필요한지?
+⚠️ Aim3 이후의 과정에서 DM세포를 ecDNA Carrier/Non-carrier로 나눈 정답 label이 필요하다.<br>
+⚠️ inferCNV의 histogram에서는 Carrier/Non-carrier로 나뉠만한 봉우리가 2개 발견된 반면, CopyKAT에서는 하나의 봉우리인 연속분포를 보였다.<br>
+✅ inferCNV의 valley(-0.2765)를 경계로 CN 추정값이 -0.2765이상이면 Carrier, -0.2765보다 작거나 같으면 Non-carrier로 분리하였다.
+
 
 
