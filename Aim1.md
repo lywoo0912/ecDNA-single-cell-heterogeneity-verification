@@ -22,9 +22,26 @@ Amplicon 좌표: chr8	127437994	129010064, chr8	130278183	130286722 확보<br>
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/3dc9e4da-a1f2-4129-bbab-d3e5537d4731" /><br>
 ---
 ### [Step4: inferCNV & Sanity Check: 이 locus에 실제로 증폭신호가 있는가?]<br>
-<img width="600" height="400" alt="dm_chr8_amplicon_vs_dm_chr8)non_amplicon_boxplot" src="https://github.com/user-attachments/assets/a4d6358d-b16a-49c1-ac61-53a2d80d6c1a" />
-<img width="550" height="250" alt="dm_chr8_profile" src="https://github.com/user-attachments/assets/72695d0a-92a3-451b-83f9-d202a1aa724b" />
-<img width="600" height="500" alt="2infer_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/08ec5857-3bb1-4b2a-b800-21b14941d2c5" />
-<img width="600" height="500" alt="copykat_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/eedbcf13-1f97-4ab8-b8a2-861fe1f7d412" />
+<img width="550" height="250" alt="dm_chr8_profile" src="https://github.com/user-attachments/assets/72695d0a-92a3-451b-83f9-d202a1aa724b" /><br>
+✅ chr8 부위의 유전자별 CN 추정값을 그래프로 나타낸 결과, AA 좌표 내 영역에서 실제로 spike가 있음을 확인했다.<br>
+=> ecDNA MYC locus에 실제로 증폭신호가 있다.<br>
+
+---
+### [Step5: CopyKAT 실행 & 두 방법 일치도 확인]<br>
+inferCNV로 살행했을 때 나온 amplicon 영역 내 유전자 15개 중 CopyKAT 실행 결과와 겹치는 유전자(7개)로 correlation을 보았다.<br>
+| Pearson | Spearman |
+| --- | --- |
+| 0.778 | 0.750 | <br>
+- Pearson: 절대적인 값 자체가 얼마나 비례해서 움직이는가를 본다.<br>
+- Spearman: 값의 절대적인 크기, 간격이 아닌 순위를 본다.<br>
+
+✅ Pearson과 Spearman의 값이 비슷하게 높다는 것은 절대적인 CN값이 비슷하고, outlier에도 크게 영향을 받지 않았으며, 전반적인 순위/크기 관계가 일관된다는 것을 말한다.<br>
+✅ 따라서, inferCNV와 CopyKAT의 CN 추정값이 높은 확률로 일치한다는 것을 확인했다.<br>
+
+<br>
+<img width="400" height="300" alt="2infer_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/08ec5857-3bb1-4b2a-b800-21b14941d2c5" />
+<img width="400" height="300" alt="copykat_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/eedbcf13-1f97-4ab8-b8a2-861fe1f7d412" /><br>
+⚠️ Aim3 이후의 과정에서 DM세포를 ecDNA Carrier/Non-carrier로 나눈 정답 label이 필요하다. 하지만 inferCNV, CopyKAT의 CN 추정값 분포 histogram을 그려봤을 때, Carrier/Non-carrier로 나뉠만한 뚜렷한 분리구간을 보이지 않는 연속분포 형태를 띄고있다.<br>
+⚠️ 어떤 방법론이 필요한지?
 
 
