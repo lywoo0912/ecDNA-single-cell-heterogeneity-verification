@@ -43,7 +43,7 @@ inferCNV로 살행했을 때 나온 amplicon 영역 내 유전자 15개 중 Copy
 <img width="400" height="300" alt="copykat_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/eedbcf13-1f97-4ab8-b8a2-861fe1f7d412" /><br>
 ⚠️ Aim3 이후의 과정에서 DM세포를 ecDNA Carrier/Non-carrier로 나눈 정답 label이 필요하다.<br>
 ⚠️ inferCNV의 histogram에서는 Carrier/Non-carrier로 나뉠만한 봉우리가 2개 발견된 반면, CopyKAT에서는 하나의 봉우리인 연속분포를 보였다.<br>
-✅ inferCNV의 valley(-0.2765)를 경계로 CN 추정값이 -0.2765보다 크면 Carrier, 작거나 같으면 Non-carrier로 분리하였다.
+✅ inferCNV의 valley(-0.2765)를 경계로 CN 추정값이 -0.2765보다 크면 Carrier, 작거나 같으면 Non-carrier로 분류하였다.
 
 
 
