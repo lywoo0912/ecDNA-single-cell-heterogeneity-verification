@@ -8,9 +8,10 @@
 **DM세포의 Amplification은 ecDNA 구간, 3가지 linear amplification 구간이 있다.**<br>
 **ecDNA구간의 copy number분산과 각각의 linear amplification구간의 copy number분산을 비교하였다.**<br>
 
-<img width="450" height="450" alt="step5_variance_barplot" src="https://github.com/user-attachments/assets/41f69419-8621-424e-baf7-d75cd232d9b2" /><br>
+<img width="450" height="450" alt="step5_variance_barplot_presmooth" src="https://github.com/user-attachments/assets/b5df7aca-9016-461c-b102-336aa4fc8040" />
 
-✅ Amplicon3_linear와 Amplicon4_linear는 ecDNA보다 분산이 더 작으므로 위의 가설이 증명되었다.<br>
-⚠️ 하지만, Amplicon2_linear는 ecDNA보다 CN분산이 컸다. 이는 가설과는 반대되는 현상이다.<br>
+
+✅ Amplicon2_linear, Amplicon3_linear, Amplicon4_linear는 ecDNA보다 분산이 더 작으므로 위의 가설이 증명되었다.<br>
+
 
 
