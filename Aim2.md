@@ -1,5 +1,7 @@
 # Aim2: Heterogeneity 정량화 & 가설 검증<br>
 > **가설: ecDNA는 centromere 없이 무작위 분배되므로, ecDNA가 위치한 genomic locus의 세포 간 copy number 분산은 일반 chromosomal amplification locus보다 클 것이다.**<br>
+
+<img width="600" height="450" alt="dm_cell_ecdna_vs_linear_amplification" src="https://github.com/user-attachments/assets/cca91799-d7a1-4e96-9ea5-a2bb5d89e4b4" /><br>
 - amplicon1_ecDNA: ['chr8:127437994-129010064', 'chr8:130278183-130286722']<br>
 - amplicon2_linear: ['chr13:72865257-74155264']<br>
 - amplicon3_linear: ['chr1:149609621-150774220']<br>
