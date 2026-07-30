@@ -31,8 +31,9 @@
 3. GroupKFold를 이용해 Train set을 3분할하여 최적의 alpha값을 찾고 RidgeCV 훈련
 4. Test set의 예측값과 실제 carrier_score 사이 상관관계 측정<br>
 
-- Pearson correlation: 0.799 <br>
-- Spearman correlation: 0.783<br>
+| Pearson correlation | 0.799 | 
+| --- | --- |
+| Spearman correlation | 0.783 |<br>
 
 ### <방법1 - Ablation study><br>
 Amplicon genes(18개)을 제외하고 Geneformer tokenizing/embedding을 진행<br>
@@ -40,8 +41,9 @@ Amplicon genes(18개)을 제외하고 Geneformer tokenizing/embedding을 진행<
 
 "즉, 다른 유전자들의 발현 패턴을 종합적으로 분석한 것이 아니게 된다."<br>
 
-- Pearson correlation: 0.794<br>
-- Spearman correlation: 0.778<br>
+| Pearson correlation | 0.794 |
+| --- | --- |
+| Spearman correlation | 0.778 |<br>
 
 ### <해석><br>
 : MYC locus genes을 제외했음에도 상관관계가 거의 그대로 유지된다. 이는 전사체 전반에 ecDNA copy number와 상관된 독립적인 signature가 분산되어 존재한다는 해석을 뒷받침한다.<br>
