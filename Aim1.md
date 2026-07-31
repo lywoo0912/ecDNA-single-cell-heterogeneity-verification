@@ -15,7 +15,7 @@ Amplicon 좌표: chr8	127437994	129010064, chr8	130278183	130286722 확보<br>
 <전처리 내용><br>
 1. filter_cells: 최소 2000개 이상의 유전자를 가진 세포만 남김<br>
 2. filter_genes: 최소 20개 이상의 세포에 나타나는 유전자만 남김<br>
-3. Mithocondrial QC: 미토콘드리아 비율이 높은 세포는 죽은 세포이므로 pct_counts_mt(미토콘드리아 비율) < 17.5 & n_genes_by_counts(검출된 유전자 수) > 2000 & total_counts(총 umi 카운트) > 10000로 필터링<br>
+3. Mithocondrial QC: 미토콘드리아 비율이 높은 세포는 죽은 세포이므로 pct_counts_mt(미토콘드리아 비율) < 17.5 & n_genes_by_counts(검출된 유전자 수) > 3000 & total_counts(총 umi 카운트) > 10000로 필터링<br>
 4. Scrublet 실행 및 threshold 조정: doublet score가 0.6이상인 세포 제거<br>
 전처리 후 cell x genes = (62599, 25870)<br>
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/c1645d61-c661-4a6a-acc9-4b09e4317805" /><br>
