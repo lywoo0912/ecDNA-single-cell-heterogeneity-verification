@@ -35,7 +35,7 @@
 | --- | --- |
 | Spearman correlation | 0.783 |<br>
 
-### <방법1 - Ablation study><br>
+### <방법1 보강 - Ablation study><br>
 Amplicon genes(18개)을 제외하고 Geneformer tokenizing/embedding을 진행<br>
 이유: 예측대상인 carrier_score는 MYC locus genes의 자체 발현량으로 계산된 값. Geneformer의 tokenizer는 세포 안 유전자들의 발현량을 순위로 정렬한다. 만약 MYC locus genes에 해당하는 유전자의 발현량이 가장 많다면 1순위로 책정할 것. 그러면 Test set에서도 MYC locus genes의 순위만 보고 carrier_score를 결정해버린다.<br>
 
