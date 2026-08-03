@@ -23,7 +23,7 @@
 ---
 
 ## L2: Linear probing
-### <목적>: Frozen Geneformer embedding으로 세포별 ecDNA copy number 수준(연속값)을 얼마나 정밀하게 예측할 수 있는지 정량적으로 검증한다.<br>
+### [목적]: Frozen Geneformer embedding으로 세포별 ecDNA copy number 수준(연속값)을 얼마나 정밀하게 예측할 수 있는지 정량적으로 검증한다.<br>
 
 ### [방법1]<br>
 1. Train/Test을 barcode로부터 rep을 추출하여 batch(rep)단위로 분할(Train: rep1 ~ rep6; 21,012개 / Test: rep7 ~ rep8; 6,771개)<br>
