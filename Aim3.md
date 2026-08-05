@@ -13,12 +13,12 @@
 <img width="500" height="400" alt="paga" src="https://github.com/user-attachments/assets/6cbf41a8-0754-46d6-8717-5a2a7ee6706c" />
 
 ### [결과]<br>
-Carrier_score plot
+***Carrier_score plot***
 - UMAP 상에서 carrier_score 색깔이 뚜렷한 클러스터로 분리되지 않고, 전체적으로 고르게 섞여서 분포함.<br>
 - Embedding 품질 자체는 신뢰할 수 있음(Trustworthiness = 0.952 - 원래 768차원 구조를 왜곡없이 반영)<br>
 - 즉, 발현기반 embedding의 2D 시각화만으로는 ecDNA 상태가 뚜렷이 구분되지 않음.<br>
 ---
-Leiden plot
+***Leiden plot***
 - 각 클러스터의 발현량 top rank genes를 wilcoxon test로 뽑아봤을 때, 8번 클러스터에서 MYC가 1등, 5번 클러스터에서 4개의 amplicon genes, 나머지 클러스터에서는 amplicon genes가 검출되지 않았다.<br>
 - Leiden 9개 클러스터의 marker gene을 확인한 결과, 8개 클러스터(0, 1, 2, 3, 4, 6, 7, 8)가 표준 cell-cycle 유전자 세트(S-phase, G2M)와 일치하였고, PAGA connectivity graph도 G1->S->G2M 인접 구조로 실제 cell cycle 진행 순서를 따라가는 것을 보인다. -> UMAP/Leiden의 주된 클러스터링 축이 cell cycle임을 확인<br>
 - 8번 클러스터는 phase 분석 결과 G2M 91%로 9개 클러스터 중 가장 순수한 cell-cycle 클러스터로 보임. 즉, MYC 발현은 ecDNA copy number 때문이 아니라, G2M기에 선택적으로 활성화되는 전사 프로그램(CENPF/TOP2A/CCNB1)으로 인한 것으로 확인하였다.<br>
