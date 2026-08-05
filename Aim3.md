@@ -20,14 +20,18 @@ Carrier_score plot
 ---
 Leiden plot
 - 각 클러스터의 발현량 top rank genes를 wilcoxon test로 뽑아봤을 때, 8번 클러스터에서 MYC가 1등, 5번 클러스터에서 4개의 amplicon genes, 나머지 클러스터에서는 amplicon genes가 검출되지 않았다.<br>
-- 하지만 8번 클러스터의 carrier_score plot은 보라색으로 진해 CN추정치가 낮다.(5번 클러스터는 어느정도 높음을 보임)
-- 8번 클러스터는 CENPF/TOP2A/CCNB1와 같은 G2M기 유전자들이 같이 검출되어 CN값은 낮지만 전사가 활발하여서 MYC가 유독 높은 발현량으로 나타난 것으로 해석하였다.<br>
+- Leiden 9개 클러스터의 marker gene을 확인한 결과, 8개 클러스터(0, 1, 2, 3, 4, 6, 7, 8)가 표준 cell-cycle 유전자 세트(S-phase, G2M)와 일치하였고, PAGA connectivity graph도 G1->S->G2M 인접 구조로 실제 cell cycle 진행 순서를 따라가는 것을 보인다. -> UMAP/Leiden의 주된 클러스터링 축이 cell cycle임을 확인<br>
+- 8번 클러스터는 phase 분석 결과 G2M 91%로 9개 클러스터 중 가장 순수한 cell-cycle 클러스터로 보임. 즉, MYC 발현은 ecDNA copy number 때문이 아니라, G2M기에 선택적으로 활성화되는 전사 프로그램(CENPF/TOP2A/CCNB1)으로 인한 것으로 확인하였다.<br>
+- ***<ins>5번 클러스터는 phase 비율이 42%로 9개 클러스터 중 가장 약하고 carrier_score도 나머지 클러스터 대비 유의하게 높다. cell cycle을 통제한 OLS 회귀에서 cell cycle과 독립적으로 유의한 것으로 나타났으며 5번 클러스터는 cell-cycle과 무관한 통계적으로 검증된 ecDNA-high subpopulation으로 해석하였다.</ins>***<br>
+
 
 ### [해석]<br>
 - UMAP의 2개 축은 이 데이터에서 가장 지배적인 변동(ex. cell cycle)을 보여주는 것이기 때문에, ecDNA CN관련 정보는 768차원 전체에 약하게 분산되어 있을 수 있다.<br>
+- carrier_score 자체도 cell cycle(S_score, G2M_score)로 설명되는 분산이 R<sup>2</sup>=0.003에 불과해, ecDNA CN 정보는 cell cycle 축과 독립적임을 확인하였다.<br>
+- 
 - 이게 지배적인 축을 차지할만큼 강하진 않더라도 Ridge regression처럼 768차원을 다 조합하는 모델은 그 약한 신호들을 모아서 높은 예측력을 만들어 낼 수 있다.<br>
+- <ins>[추가검증]: 이 가설은 cell-cycle 성분을 제거한 residual carrier_score에 대해 아래 L2의 동일한 Ridge pipeline을 재실행하여 검증하였다. 결과는 (Pearson: 0.799 -> 0.798, Spearman: 0.783 -> 0.782)으로 예측력이 원본 대비 거의 그대로 유지되었으므로, Ridge의 예측력은 cell-cycle을 경유한 confound가 아니라, 순수하게 ecDNA 특이적인 신호에서 나온 것임을 검증하였다.</ins><br>
 
-[부가 탐색]: UMAP의 클러스터가 batch, 시퀀싱 depth, mitochondrial %, doublet score 중 무엇을 기준으로 만들어졌는지 확안했으나 모두 뚜렷한 대응관계를 찾지 못했다.<br>
 
 ---
 
