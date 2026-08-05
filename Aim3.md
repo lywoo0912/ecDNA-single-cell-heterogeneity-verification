@@ -10,11 +10,12 @@
 
 <img width="900" height="400" alt="leiden score" src="https://github.com/user-attachments/assets/cec73f70-23b9-498f-8654-dc565224e96f" /><br>
 ### [결과]<br>
+Carrier_score plot
 - UMAP 상에서 carrier_score 색깔이 뚜렷한 클러스터로 분리되지 않고, 전체적으로 고르게 섞여서 분포함.<br>
 - Embedding 품질 자체는 신뢰할 수 있음(Trustworthiness = 0.952 - 원래 768차원 구조를 왜곡없이 반영)<br>
 - 즉, 발현기반 embedding의 2D 시각화만으로는 ecDNA 상태가 뚜렷이 구분되지 않음.<br>
 ---
-<leiden><br>
+Leiden plot
 - 각 클러스터의 발현량 top rank genes를 wilcoxon test로 뽑아봤을 때, 8번 클러스터에서 MYC가 1등, 5번 클러스터에서 4개의 amplicon genes, 나머지 클러스터에서는 amplicon genes가 검출되지 않았다.<br>
 - 하지만 8번 클러스터의 carrier_score plot은 보라색으로 진해 CN추정치가 낮다.(5번 클러스터는 어느정도 높음을 보임)
 - 8번 클러스터는 CENPF/TOP2A/CCNB1와 같은 G2M기 유전자들이 같이 검출되어 CN값은 낮지만 전사가 활발하여서 MYC가 유독 높은 발현량으로 나타난 것으로 해석하였다.<br>
