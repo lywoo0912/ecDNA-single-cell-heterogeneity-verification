@@ -9,6 +9,9 @@
 3. 각 점(세포)을 inferCNV로 추정한 carrier_score(ecDNA amplicon locus CN, 연속값)으로 색칠<br>
 
 <img width="900" height="400" alt="leiden score" src="https://github.com/user-attachments/assets/cec73f70-23b9-498f-8654-dc565224e96f" /><br>
+<img width="500" height="400" alt="phase_on_leiden" src="https://github.com/user-attachments/assets/d0c99f52-9d1d-4dfb-a88b-9ef66c7b81b0" />
+<img width="500" height="400" alt="paga" src="https://github.com/user-attachments/assets/6cbf41a8-0754-46d6-8717-5a2a7ee6706c" />
+
 ### [결과]<br>
 Carrier_score plot
 - UMAP 상에서 carrier_score 색깔이 뚜렷한 클러스터로 분리되지 않고, 전체적으로 고르게 섞여서 분포함.<br>
