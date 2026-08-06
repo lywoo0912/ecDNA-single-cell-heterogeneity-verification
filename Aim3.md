@@ -28,7 +28,7 @@
 ### [해석]<br>
 - UMAP의 2개 축은 이 데이터에서 가장 지배적인 변동(ex. cell cycle)을 보여주는 것이기 때문에, ecDNA CN관련 정보는 768차원 전체에 약하게 분산되어 있을 수 있다.<br>
 - carrier_score 자체도 cell cycle(S_score, G2M_score)로 설명되는 분산이 R<sup>2</sup>=0.003에 불과해, ecDNA CN 정보는 cell cycle 축과 독립적임을 확인하였다.<br>
-- 이게 지배적인 축을 차지할만큼 강하진 않더라도 Ridge regression처럼 768차원을 다 조합하는 모델은 그 약한 신호들을 모아서 높은 예측력을 만들어 낼 수 있다.<br>
+- ecDNA CN 정보가 지배적인 축을 차지할만큼 강하진 않더라도 Ridge regression처럼 768차원을 다 조합하는 모델은 그 약한 신호들을 모아서 높은 예측력을 만들어 낼 수 있다.<br>
 - <ins>[추가검증]: 이 가설은 cell-cycle 성분을 제거한 residual carrier_score에 대해 아래 L2의 동일한 Ridge pipeline을 재실행하여 검증하였다. 결과는 (Pearson: 0.799 -> 0.798, Spearman: 0.783 -> 0.782)으로 예측력이 원본 대비 거의 그대로 유지되었으므로, Ridge의 예측력은 cell-cycle을 경유한 confound가 아니라, 순수하게 ecDNA 특이적인 신호에서 나온 것임을 검증하였다.</ins><br>
 
 
