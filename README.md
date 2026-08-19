@@ -1,6 +1,8 @@
 # ecDNA-single-cell-heterogeneity-verification
 
 ## Goal: 암세포 집단 안에서 ecDNA가 세포마다 얼마나 다르게 분포하는가를 single-cell transcriptome으로부터 정량화한다.<br>
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/68e3edea-6ca5-4821-93f0-93aff466a56c" /><br>
+
 ### 🎯 [Background]<br>
 암세포 안에는 ecDNA(extrachromosomal DNA)라는 정상 chromosome 밖에 떠다니는 원형 DNA조각이 있다.<br>
 이는 MYC, EGFR, MYCN 같은 oncogene을 수십~수백 copy가지고 있어 암을 강하게 drive하는 요인으로 여겨진다.<br>
