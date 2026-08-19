@@ -1,6 +1,7 @@
 # ecDNA-single-cell-heterogeneity-verification
 
-## Goal: 암세포 집단 안에서 ecDNA가 세포마다 얼마나 다르게 분포하는가를 single-cell transcriptome으로부터 정량화한다.<br>
+## Goal1: 암세포 집단 안에서 ecDNA가 세포마다 얼마나 다르게 분포하는가를 single-cell transcriptome으로부터 정량화한다.
+## Goal2: Copy number 추정없이 transcriptome 발현량만으로 세포의 ecDNA 수치를 예측한다.
 <img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/68e3edea-6ca5-4821-93f0-93aff466a56c" /><br>
 
 ### 🎯 [Background]<br>
@@ -16,4 +17,4 @@ ecDNA는 centromere없이 무작위 분배되므로, ecDNA가 위치한 genomic 
 ### 🎯 [Aims]<br>
 Aim1: 세포별 ecDNA copy number 추정<br>
 Aim2: Heterogeneiry 정량화 & 가설 검증<br>
-Aim3: Foundation model로 transcriptome에서 carrier예측 - 세포가 ecDNA를 많이 가졌는지를 copy number 추정없이 발현패턴만으로 알아낼 수 있는지를 Geneformer와 같은 foundation model로 탐색한다.<br>
+Aim3: Foundation model로 transcriptome에서 ecDNA carrying 수치 예측 - 세포가 ecDNA를 얼마나 가졌는지를 copy number 추정없이 발현패턴만으로 알아낼 수 있는지를 Geneformer와 같은 foundation model로 탐색한다.<br>
