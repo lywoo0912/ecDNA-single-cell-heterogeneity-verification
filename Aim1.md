@@ -41,9 +41,8 @@ inferCNV로 살행했을 때 나온 amplicon 영역 내 유전자 15개 중 Copy
 <br>
 <img width="400" height="300" alt="infercnv_ecdna_presmooth" src="https://github.com/user-attachments/assets/b326bba4-a2d6-4796-aa83-b2c2118adbd9" />
 <img width="400" height="300" alt="copykat_dm_amplicon_score_distribution" src="https://github.com/user-attachments/assets/eedbcf13-1f97-4ab8-b8a2-861fe1f7d412" /><br>
-⚠️ Aim3 이후의 과정에서 DM세포를 ecDNA Carrier/Non-carrier로 나눈 정답 label이 필요하다.<br>
-⚠️ inferCNV의 histogram에서는 Carrier/Non-carrier로 나눌만한 봉우리가 2개 발견된 반면, CopyKAT에서는 하나의 봉우리인 연속분포를 보였다.<br>
-✅ inferCNV의 valley(-0.2765)를 경계로 CN score가 -0.2765보다 크면 Carrier, 작거나 같으면 Non-carrier로 분류하였다.
-
+⚠️ inferCNV에서 DM세포 중 ecDNA를 많이 가진 DM세포와 그렇지 않은 세포로 나뉠만한 valley가 보였다.<br>
+⚠️ 하지만 생물학적 특성 상 세포 내에서 ecDNA 양 자체를 정확히 이분화 하는 것보다는 연속적인 값의 형태로 바라보는게 더 나을 것이라 판단하였다.<br>
+✅ 이를 토대로 Aim3에서는 각 DM세포에 대하여 ecDNA carrier/non-carrier classification이 아닌, 각 DM세포의 ecDNA carrying score regression으로 진행하였다.
 
 
