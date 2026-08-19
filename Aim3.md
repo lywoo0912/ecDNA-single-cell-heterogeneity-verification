@@ -4,7 +4,7 @@
 ("발현만으로 만든 UMAP 공간 안에서 ecDNA copy number가 높은 세포끼리 뭉쳐있는 영역이 존재하는가?")<br>
 
 ### [방법]<br>
-1. Pretrained Geneformer(V2-140M, cancer-tuned)로 DM세포(27,783개)의 frozen embedding(768차원) 추출 - CN정보 없이 발현량만 입력으로 사용<br>
+1. Pretrained Geneformer(V2-104M, cancer-tuned)로 DM세포(27,783개)의 frozen embedding(768차원) 추출 - CN정보 없이 발현량만 입력으로 사용<br>
 2. UMAP으로 2차원 축소<br>
 3. 각 점(세포)을 inferCNV로 추정한 carrier_score(ecDNA amplicon locus CN, 연속값)으로 색칠<br>
 
@@ -61,4 +61,10 @@ Amplicon genes(18개)을 제외하고 Geneformer tokenizing/embedding을 진행<
 : MYC locus genes을 제외했음에도 상관관계가 거의 그대로 유지된다. 이는 전사체 전반에 ecDNA copy number와 상관된 독립적인 signature가 분산되어 존재한다는 해석을 뒷받침한다.<br>
 "즉, Geneformer embedding은 MYC/ecDNA locus 자체를 직접 보지 않고도, 나머지 발현 패턴만으로 CN 수준을 거의 동일하게 예측할 수 있었다."
 
+--- 
+
+### [종합 결론]
+이 프로젝트의 결과는 DNA-level 데이터없이 기존에 쌓인 scRNA-seq 데이터만으로도 ecDNA 탐색 부담을 근사적으로 스크리닝할 수 있는 가능성을 시사한다. 이를 통해 대규모 public scRNA-seq atlas에서 ecDNA 후보를 저비용으로 찾아내는데 활용될 수 있다.<br>
+
+다만, 지금은 COLO320DM이라는 하나의 cell line에 대해서만 결과를 보았다는 점이 한계이다. ecDNA를 포함한 세포의 scRNA-seq 데이터 자체를 구하는데 어려움이 있긴 하지만 여러 cell line들에 대해서의 검증이 필요하다.
 
