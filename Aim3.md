@@ -1,6 +1,6 @@
 # Aim3: Geneformer foundation model로 transcriptome에서 ecDNA score 예측
 ## L1: Frozen embedding UMAP 시각화
-### [목적] Copy number 추정없이, 발현패턴(raw expression)만으로 세포의 ecDNA carrier정도를 시각적으로 구분할 수 있는지 탐색한다.<br>
+### [목적] Copy number 추정없이, 발현패턴(raw expression)만으로 나온 Geneformer embedding에서 세포의 ecDNA carrier정도를 시각적으로 구분할 수 있는지 탐색한다.<br>
 ("발현만으로 만든 UMAP 공간 안에서 ecDNA copy number가 높은 세포끼리 뭉쳐있는 영역이 존재하는가?")<br>
 
 ### [방법]<br>
