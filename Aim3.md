@@ -2,6 +2,7 @@
 ## L1: Frozen embedding UMAP 시각화
 ### [목적] Copy number 추정없이, 발현패턴(raw expression)만으로 나온 Geneformer embedding에서 세포의 ecDNA carrier정도를 시각적으로 구분할 수 있는지 탐색한다.<br>
 ("발현만으로 만든 UMAP 공간 안에서 ecDNA copy number가 높은 세포끼리 뭉쳐있는 영역이 존재하는가?")<br>
+(UMAP 공간 자체는 발현량만으로 구성하고, carrier_score는 결과 검증을 위한 색칠 라벨로만 사용)<br>
 
 ### [방법]<br>
 1. Pretrained Geneformer(V2-104M, cancer-tuned)로 DM세포(27,783개)의 frozen embedding(768차원) 추출 - CN정보 없이 발현량만 입력으로 사용<br>
