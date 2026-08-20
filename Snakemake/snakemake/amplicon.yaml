@@ -1,0 +1,13 @@
+COLO320DM:
+  ecdna:
+    amplicon1_ecdna:
+      - {chr: "chr8", start: 127437994, stop: 129010064}
+      - {chr: "chr8", start: 130278183, stop: 130286722}
+  linear:
+    amplicon2_linear:
+      - {chr: "chr13", start: 72865257, stop: 74155264}
+    amplicon3_linear:
+      - {chr: "chr1", start: 149609621, stop: 150774220}
+    amplicon4_linear:
+      - {chr: "chr2", start: 127156013,  stop: 127674680}
+      - {chr: "chr2", start: 127677272, stop: 131355936}

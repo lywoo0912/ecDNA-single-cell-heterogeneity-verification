@@ -1,0 +1,8 @@
+# COLO320DM/HSR raw 10x 데이터 (barcode 접두사로 두 세포주가 섞여있음, GSE160148)
+colo320_raw_10x: "/home/kkangne0912/ecdna/COLO320DM/colo320dm_GSE160148"
+
+# raw+QC는 DM+HSR을 합친 "COLO320" 샘플 단위로 진행, inferCNV 직전에 barcode로 분리
+sample: COLO320
+cell_line: COLO320DM
+barcode_prefix: COLO320DM
+ensembl_release: 75

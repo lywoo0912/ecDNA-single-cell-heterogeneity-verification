@@ -1,0 +1,180 @@
+configfile: "config.yaml"
+
+SAMPLE = config["sample"]
+CELL_LINE = config["cell_line"]
+
+rule all:
+    input:
+        f"Results/{CELL_LINE}/robustness",
+        f"Results/{CELL_LINE}/heterogeneity",
+        f"Results/{CELL_LINE}/Geneformer/paga_connectivity.png",
+        f'Results/{CELL_LINE}/Geneformer/regression_corr.png'
+
+
+rule build_adata:
+    output:
+        f"Results/{SAMPLE}/Preprocess/{SAMPLE}_Raw_data.h5ad"
+    conda:
+        "python_env"
+    params:
+        raw_10x = config["colo320_raw_10x"]
+    script:
+        "01_preprocessing/01_Build_adata.py"
+
+rule qc:
+    input:
+        f"Results/{SAMPLE}/Preprocess/{SAMPLE}_Raw_data.h5ad"
+    output:
+        violin = f"Results/{SAMPLE}/Preprocess/qc_violin_plot.png",
+        histscatter = f"Results/{SAMPLE}/Preprocess/histscatter_plot.png",
+        mito_scatter = f"Results/{SAMPLE}/Preprocess/mitochondrial_plot.png",
+        scrublet = f"Results/{SAMPLE}/Preprocess/scrublet_plot.png",
+        adata = f"Results/{SAMPLE}/Preprocess/{SAMPLE}_qc.h5ad"
+    conda:
+        "python_env"
+    script:
+        "01_preprocessing/02_qc.py"
+
+rule split_by_barcode:
+    input:
+        f"Results/{SAMPLE}/Preprocess/{SAMPLE}_qc.h5ad"
+    output:
+        f"Results/{CELL_LINE}/Preprocess/{CELL_LINE}_qc.h5ad"
+    conda:
+        "python_env"
+    params:
+        barcode_prefix = config["barcode_prefix"]
+    script:
+        "01_preprocessing/01b_split_by_barcode.py"
+
+rule infer_10x:
+    input:
+        f"Results/{CELL_LINE}/Preprocess/{CELL_LINE}_qc.h5ad"
+    output:
+        directory(f"Results/{CELL_LINE}/Preprocess/infercnv_10x_data")
+    conda:
+        "python_env"
+    params:
+        cellline = CELL_LINE,
+        ensembl_release = config["ensembl_release"]
+    script:
+        "01_preprocessing/03_for_infercnv_input.py"
+
+rule infercnv:
+    input:
+        infer_10x = f"Results/{CELL_LINE}/Preprocess/infercnv_10x_data"
+    output:
+        directory(f"Results/{CELL_LINE}/infercnv")
+    conda:
+        "r_env"
+    script:
+        "02_infercnv/02_infercnv.R"
+
+rule copykat:
+    input:
+        f"Results/{CELL_LINE}/Preprocess/infercnv_10x_data"
+    output:
+        directory(f"Results/{CELL_LINE}/copykat")
+    params:
+        cellline = CELL_LINE
+    conda:
+        "r_env"
+    script:
+        "02_copykat/02_copykat.R"
+
+rule sanitycheck:
+    input:
+        infer_10x = f"Results/{CELL_LINE}/Preprocess/infercnv_10x_data",
+        infercnv_dir = f"Results/{CELL_LINE}/infercnv",
+        amplicons = "amplicon.yaml"
+    output:
+        directory(f"Results/{CELL_LINE}/sanitycheck")
+    params:
+        cellline = CELL_LINE
+    conda:
+        "r_env"
+    script:
+        "03_sanitycheck/03_sanitycheck.R"
+
+rule robustness:
+    input:
+        infercnv_dir = f"Results/{CELL_LINE}/infercnv",
+        copykat = f"Results/{CELL_LINE}/copykat",
+        sanitycheck_dir = f"Results/{CELL_LINE}/sanitycheck"
+    output:
+        directory(f"Results/{CELL_LINE}/robustness")
+    params:
+        cellline = CELL_LINE
+    conda:
+        "r_env"
+    script:
+        "04_robustness/04_robustness.R"
+
+rule hetero:
+    input:
+        infercnv_dir = f"Results/{CELL_LINE}/infercnv",
+        sanitycheck_dir = f"Results/{CELL_LINE}/sanitycheck"
+    output:
+        directory(f"Results/{CELL_LINE}/heterogeneity")
+    params:
+        cellline = CELL_LINE
+    conda:
+        "r_env"
+    script:
+        "05_heterogeneity/05_heterogeneity.R"
+
+rule geneformer_input:
+    input:
+        adata = f"Results/{CELL_LINE}/Preprocess/{CELL_LINE}_qc.h5ad"
+    output:
+        geneform_adata = f"06_Geneformer/inputmatrix/{CELL_LINE}_qc_for_geneformer.h5ad"
+    conda:
+        "python_env"
+    params:
+        ensembl_release = config["ensembl_release"]
+    script:
+        "06_Geneformer/01_geneformer_input.py"
+
+#geneformer 폴더 있다고 가정
+rule geneformer_embedding:
+    input:
+        adata = f"06_Geneformer/inputmatrix/{CELL_LINE}_qc_for_geneformer.h5ad",
+        sanitycheck_dir = f"Results/{CELL_LINE}/sanitycheck"
+    output:
+        geneformer_tokenized = directory(f"Results/{CELL_LINE}/Geneformer/{CELL_LINE}_geneformer_tokenized"),
+        geneformer_embedding = directory(f"Results/{CELL_LINE}/Geneformer/{CELL_LINE}_geneformer_embedding")
+    params:
+        cellline = CELL_LINE
+    conda:
+        "python_env"
+    script:
+        "06_Geneformer/02_geneformer_embedding.py"
+
+rule umap:
+    input:
+        emb_clcancer = f"Results/{CELL_LINE}/Geneformer/{CELL_LINE}_geneformer_embedding",
+        sanitycheck_dir = f'Results/{CELL_LINE}/sanitycheck',
+        geneform_adata = f"06_Geneformer/inputmatrix/{CELL_LINE}_qc_for_geneformer.h5ad"
+    output:
+        umap = f"Results/{CELL_LINE}/Geneformer/leiden_ecdna_score_umap.png",
+        cellcycle_umap = f"Results/{CELL_LINE}/Geneformer/cell_cycle_umap.png",
+        paga = f"Results/{CELL_LINE}/Geneformer/paga_connectivity.png"
+    params:
+        cellline = CELL_LINE
+    conda:
+        "python_env"
+    script:
+        "06_Geneformer/03_umap.py"
+
+rule regression:
+    input:
+        emb_clcancer = f"Results/{CELL_LINE}/Geneformer/{CELL_LINE}_geneformer_embedding",
+        sanitycheck_dir = f'Results/{CELL_LINE}/sanitycheck'
+    output:
+        f'Results/{CELL_LINE}/Geneformer/regression_corr.png'
+    params:
+        cellline = CELL_LINE
+    conda:
+        "python_env"
+    script:
+        "06_Geneformer/04_regression.py"
