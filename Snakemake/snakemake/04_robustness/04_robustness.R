@@ -3,7 +3,7 @@ library(data.table)
 infercnv_obj <- readRDS(file.path(snakemake@input$infercnv_dir, "15_no_subclustering.infercnv_obj"))
 expr <- infercnv_obj@expr.data
 
-# 원본(step4_2_copykat.R)의 MYC 주변 하드코딩 15유전자 리스트
+# MYC 주변 15유전자 리스트
 amplicon_genes <- c("RP11-103H7.1", "RP11-103H7.2", "FAM84B", "RP11-89K10.1",
                      "RP11-351C8.1", "PCAT1", "PCAT2", "CASC19", "CCAT1", "CASC8",
                      "RP11-382A18.2", "POU5F1B", "CASC11", "MYC", "PVT1")
