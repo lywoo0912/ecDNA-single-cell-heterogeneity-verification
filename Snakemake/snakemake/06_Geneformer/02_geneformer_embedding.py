@@ -40,6 +40,7 @@ tk.tokenize_data(
     file_format="h5ad"
 )
 
+# Geneformer embedding extract
 embex = EmbExtractor(
     model_type="Pretrained",
     model_version="V2",
